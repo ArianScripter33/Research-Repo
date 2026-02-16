@@ -92,6 +92,18 @@ See `docs/MATHEMATICAL_FOUNDATIONS.md` for full context.
 
 Full references and citation mapping: `docs/PRIMARY_SOURCES.md`.
 
+## Academic Lineage and Research Positioning
+
+This repository explicitly traces its design lineage to peer-reviewed and preprint research in:
+
+- agentic data-science workflows (DS-STAR, MLE-STAR),
+- multi-agent scientific reasoning (AI co-scientist),
+- advanced GraphRAG paradigms (GraphRAG, HippoRAG, hierarchical RAG),
+- metacognitive and memory-augmented agents (Reflexion, ToT, GoT, MemGPT),
+- graph-native query systems and graph analytics (Cypher, Leiden).
+
+See `docs/ACADEMIC_LINEAGE.md` for curated references and implementation mapping.
+
 ## Evaluation Posture
 
 Current status:
@@ -123,6 +135,7 @@ Research-Repo/
 │   ├── .gitkeep
 │   └── README.md
 └── docs/
+    ├── ACADEMIC_LINEAGE.md
     ├── AGENTS.md
     ├── ARCHITECTURE.md
     ├── CAPABILITIES.md

@@ -11,6 +11,7 @@
 - Implement reproducible benchmark protocols.
 - Add objective metrics for reasoning integrity and planning horizons.
 - Build failure taxonomy across retrieval, planning, and synthesis.
+- Anchor benchmark design to referenced work in `docs/ACADEMIC_LINEAGE.md`.
 
 ## Phase 3: Deep Reasoning Integration
 

@@ -29,6 +29,15 @@ Current empirical signals include:
 6. Planning horizon robustness.
 7. Cost and latency per mode.
 
+## 3.1 Candidate Benchmark Families (Planned)
+
+To align with the academic lineage:
+
+1. DS-STAR-aligned task families (heterogeneous data science tasks).
+2. Theoretical reasoning harness tasks (`benchmarks/theoretical_reasoning.md`).
+3. Graph retrieval stress tasks (global-context questions requiring graph traversal).
+4. Multimodal grounding tasks (text + chart + OCR consistency checks).
+
 ## 4. Baselines (Planned)
 
 1. Vector RAG (top-k only, no graph expansion).

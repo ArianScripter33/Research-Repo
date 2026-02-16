@@ -102,6 +102,37 @@ Mas detalle: `docs/MATHEMATICAL_FOUNDATIONS.md`.
 | Vision | OCR + ranking multimodal + analisis visual | Insights de graficas y tablas |
 | Memoria metacognitiva | Persistencia de trazas y anti-patrones | Mejora inter-sesion |
 
+## Evaluacion, Benchmarks y Limitaciones
+
+Estado actual:
+
+- **Benchmark formal comparativo**: pendiente.
+- **Evidencia empirica disponible**: extensa (misiones ejecutadas, trazas, reportes, telemetria por fase, pruebas de integracion).
+
+En vez de reportar metricas no verificadas, el repositorio sigue un enfoque de evidencia honesta:
+
+1. Reportar lo medido operacionalmente.
+2. Declarar explicitamente lo que aun no esta benchmarkeado.
+3. Mantener un plan reproducible para evaluacion futura.
+
+Dimensiones de evaluacion recomendadas:
+
+- groundedness y trazabilidad de hallazgos,
+- cobertura de fuentes y contexto recuperado,
+- redundancia semantica post-sintesis,
+- estabilidad del ciclo multi-agente,
+- latencia y costo relativo por modo de investigacion.
+
+Limitaciones conocidas:
+
+- Dependencia de calidad y disponibilidad de fuentes externas.
+- Sensibilidad a rate limits y cuotas de proveedores de modelo/API.
+- Variabilidad de extraccion en documentos PDF complejos.
+- Mayor latencia/costo en modos de investigacion profunda.
+- Requiere validacion humana para decisiones de alto impacto.
+
+Mas detalle: `docs/EVALUATION.md`.
+
 ## Estructura del Repositorio
 
 ```text
@@ -113,6 +144,7 @@ Research-Repo/
     ├── ARCHITECTURE.md
     ├── AGENTS.md
     ├── CAPABILITIES.md
+    ├── EVALUATION.md
     ├── GOVERNANCE.md
     ├── MATHEMATICAL_FOUNDATIONS.md
     └── TOOLING_MAP.md

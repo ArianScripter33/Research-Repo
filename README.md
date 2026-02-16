@@ -19,6 +19,12 @@ This project focuses on problems where standard assistants fail:
 3. Multi-step reasoning across text, tables, and visual artifacts.
 4. Cross-session continuity and self-correction.
 
+## Abstract
+
+K.I.M.E.R.A. and DS-STAR are presented as a research-preview architecture for high-rigor, human-supervised autonomous analysis. The system combines GraphRAG retrieval (seed + graph expansion), multimodal evidence grounding (OCR + semantic visual ranking), and recursive agentic workflows for planning, verification, and synthesis. The operational design follows a parallel strategy: Deep Research handles long-horizon external intelligence acquisition, while DS-STAR concurrently processes local repositories and analytical workloads; both streams are fused into a unified report with explicit assumptions, source traceability, and quantitative artifacts.
+
+The central hypothesis is that reliability gains in reasoning systems are cumulative: each validated improvement in planning control, memory structure, and verification policy increases the quality of subsequent iterations. Under this view, the architecture is optimized not only for immediate task performance, but for compounding capability development across domains where first-principles reasoning is critical, including mathematics, AI systems engineering, and scientific research.
+
 ## Current System State (Honest Snapshot)
 
 This repository reflects an architecture with strong working components, but incomplete end-to-end collaboration.
@@ -26,17 +32,11 @@ This repository reflects an architecture with strong working components, but inc
 - `Working`: Research subsystem (GraphRAG + deep research).
 - `Working`: DS-STAR subsystem (iterative analytical loop).
 - `Working`: Multimodal retrieval and visual interpretation.
-- `In progress`: Unified collaborative flow (`Research -> DS-STAR -> Final synthesis`).
+- `In progress`: Unified collaborative flow (`Deep Research || DS-STAR -> Fusion -> Final synthesis`).
 - `In progress`: Full metacognitive procedural memory in production flow.
 - `Pending`: Formal reproducible benchmarking report.
 
 If you evaluate this project, treat it as a high-rigor **research preview**, not a finished production benchmark release.
-
-## Author Thesis (Compound Effect)
-
-> \"El fin de todo esto es construir sistemas autónomos con criterio humano al centro.  
-> La investigación en IA funciona como interés compuesto: cada mejora en razonamiento, memoria y optimización acelera la siguiente iteración.  
-> Ese efecto compuesto puede habilitar avances en áreas fundamentales como física, matemáticas e inteligencia artificial.\"
 
 ## DS-STAR Positioning
 

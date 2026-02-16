@@ -1,37 +1,114 @@
 # Portafolio de Agentes
 
-## Orquestador Estratégico
+## 1. Orquestador Estrategico
 
-- Función: interpretar intención y seleccionar estrategia de ejecución.
-- Eje de decisión: investigación, analítica, multimodal o ruta híbrida.
-- Límite de responsabilidad: coordina; no reemplaza ejecución de especialistas.
+**Rol**: cerebro de ruteo.
 
-## Deep Research Agent
+- Interpreta intencion del usuario.
+- Selecciona el agente o combinacion de agentes correcta.
+- Mantiene coherencia de conversacion y salida.
 
-- Función: adquisición de evidencia externa a gran escala.
-- Comportamiento: búsqueda iterativa, filtrado de fuentes e ingesta estructurada.
-- Contrato de salida: unidades de evidencia vinculadas a fuentes.
+**Tareas tipicas**:
 
-## Research Planner Agent
+- Resolver preguntas directas sobre conocimiento ya indexado.
+- Escalar a investigacion profunda cuando detecta complejidad.
+- Derivar a DS-STAR cuando la pregunta exige analitica cuantitativa.
 
-- Función: diseñar misiones de investigación exhaustiva por fases.
-- Comportamiento: detectar brechas de conocimiento y emitir sub-queries ortogonales.
-- Contrato de salida: blueprint de reporte y entradas de síntesis.
+## 2. Kimera Research Agent
 
-## Data Scientist Agent
+**Rol**: especialista en consulta GraphRAG.
 
-- Función: ejecutar flujos analíticos robustos sobre datasets locales.
-- Comportamiento: planeación analítica, ejecución, validación y reporte.
-- Contrato de salida: hallazgos verificables y artefactos reproducibles.
+- Opera sobre el grafo de conocimiento existente.
+- Recupera contexto textual y estructural.
+- Devuelve evidencia lista para sintesis.
 
-## Componente de Inteligencia Visual
+**Tareas tipicas**:
 
-- Función: evaluar artefactos no textuales (gráficos, diagramas, figuras).
-- Comportamiento: filtrar ruido, puntuar relevancia y extraer señales visuales.
-- Contrato de salida: bloques de contexto visual de alta utilidad.
+- Responder preguntas tecnicas con soporte documental.
+- Buscar relaciones entre documentos y conceptos.
+- Reportar gaps cuando la evidencia es insuficiente.
 
-## Componente Metacognitivo
+## 3. Deep Research Agent
 
-- Función: preservar trazas estructuradas de razonamiento entre sesiones.
-- Comportamiento: recuperar experiencia previa relevante para el nuevo contexto.
-- Contrato de salida: contexto con memoria para decisiones de mayor calidad.
+**Rol**: adquisicion web autonoma.
+
+- Descubre fuentes externas relevantes.
+- Ingiere contenido al grafo con lineage de mision.
+- Puede sintetizar o dejar evidencia preparada para etapas posteriores.
+
+**Tareas tipicas**:
+
+- Levantar estado del arte sobre un tema nuevo.
+- Actualizar un dominio tecnico con fuentes recientes.
+- Construir base de evidencia para reportes ejecutivos.
+
+## 4. Research Planner Agent
+
+**Rol**: director de misiones de investigacion.
+
+- Diseña estrategia multi-fase.
+- Genera sub-queries ortogonales para cobertura amplia.
+- Ejecuta auditoria semantica para evitar redundancia.
+
+**Tareas tipicas**:
+
+- Deep dives estrategicos.
+- Reportes de inteligencia tecnica.
+- Synthesis final con enfoque de decision.
+
+## 5. DS-STAR Data Scientist Agent
+
+**Rol**: analista cuantitativo autonomo con verificacion.
+
+- Descompone tareas analiticas en pasos ejecutables.
+- Genera y ejecuta codigo local.
+- Verifica resultados y corrige fallas.
+
+**Tareas tipicas**:
+
+- Analisis financiero y forecasting.
+- Segmentacion y deteccion de patrones.
+- Construccion de graficas y reportes tecnicos reproducibles.
+
+## 6. Componente de Vision
+
+**Rol**: interpretacion de activos visuales.
+
+- Identifica imagenes relevantes para una query.
+- Extrae contexto con OCR y embeddings multimodales.
+- Realiza interpretacion profunda para enriquecer la sintesis.
+
+**Tareas tipicas**:
+
+- Leer graficas de performance.
+- Interpretar diagramas de arquitectura.
+- Priorizar evidencia visual de alta densidad informativa.
+
+## 7. Componente Metacognitivo
+
+**Rol**: memoria y reflexion estructurada.
+
+- Captura trazas de razonamiento durante ejecucion.
+- Persiste patrones de exito/error.
+- Rehidrata contexto relevante en sesiones futuras.
+
+**Tareas tipicas**:
+
+- Evitar repetir rutas fallidas.
+- Transferir aprendizaje entre misiones.
+- Mejorar calidad de planificacion y ruteo con historial.
+
+## 8. Mapa de Interaccion
+
+```mermaid
+flowchart LR
+    U[User] --> O[Orchestrator]
+    O --> KR[Kimera Research]
+    O --> DR[Deep Research]
+    O --> RP[Research Planner]
+    O --> DS[DS-STAR]
+    KR --> S[Synthesis]
+    DR --> S
+    RP --> S
+    DS --> S
+```

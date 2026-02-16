@@ -161,13 +161,6 @@ See `docs/EVALUATION.md` and `benchmarks/theoretical_reasoning.md`.
 
 Implementation and benchmark execution plan: `docs/INTEGRATION_BENCHMARK_PLAN.md`.
 
-## Real-World Testbeds
-
-Two macOS applications are intended as real-world testbeds for reasoning latency and interaction quality under production constraints:
-
-- **Eidetic Clipboard**
-- **Kairon Whisper**
-
 ## Repository Structure
 
 ```text

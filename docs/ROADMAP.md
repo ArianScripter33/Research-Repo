@@ -13,6 +13,13 @@
 - Build failure taxonomy across retrieval, planning, and synthesis.
 - Anchor benchmark design to referenced work in `docs/ACADEMIC_LINEAGE.md`.
 
+## Phase 2.5: Unified Flow Integration (Priority)
+
+- Connect `Research -> DS-STAR -> Final Synthesis` as one deterministic pipeline.
+- Standardize handoff artifacts between agents (structured payloads, not only free text).
+- Produce one final merged report per mission.
+- Validate that report contains source traceability + analytical outputs.
+
 ## Phase 3: Deep Reasoning Integration
 
 - Integrate advanced reasoning model candidate for Planner-heavy tasks.

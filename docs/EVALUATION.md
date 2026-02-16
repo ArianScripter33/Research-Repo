@@ -65,3 +65,29 @@ This harness targets advanced reasoning under constraints, including first-princ
 - Extraction variability in complex PDFs.
 - Higher cost/latency in deep multimodal modes.
 - Human validation required for high-stakes decisions.
+
+## 8. Budget-Aware Benchmark Plan (Credit-Constrained)
+
+This project is designed to benchmark under limited cloud credits.
+
+Reference budget:
+
+- Available credits: approximately USD 300.
+
+Suggested execution policy:
+
+1. Run a **mini-benchmark first** (10-15 tasks).
+2. Cap iterations per task to avoid runaway loops.
+3. Enforce per-task and per-day spend ceilings.
+4. Log token and cost telemetry for every run.
+5. Expand only if first pass is stable and reproducible.
+
+Recommended spend split:
+
+1. 60% integration validation runs.
+2. 30% benchmark evaluation runs.
+3. 10% reruns for reproducibility checks.
+
+Target outcome:
+
+- A credible, small, reproducible benchmark release instead of a large but noisy one.

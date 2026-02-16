@@ -2,6 +2,9 @@
 
 **Scientific Architecture Portfolio for K.I.M.E.R.A. and DS-STAR**
 
+> **Status:** Research Preview (WIP)  
+> **Maturity:** Core agents validated individually, collaborative multi-agent flow in active integration.
+
 ## What is K.I.M.E.R.A.?
 
 **K.I.M.E.R.A.** stands for **Knowledge Intelligent Multimodal Entity Retrieval Assistant**.
@@ -15,6 +18,19 @@ This project focuses on problems where standard assistants fail:
 2. Multi-source synthesis with low hallucination tolerance.
 3. Multi-step reasoning across text, tables, and visual artifacts.
 4. Cross-session continuity and self-correction.
+
+## Current System State (Honest Snapshot)
+
+This repository reflects an architecture with strong working components, but incomplete end-to-end collaboration.
+
+- `Working`: Research subsystem (GraphRAG + deep research).
+- `Working`: DS-STAR subsystem (iterative analytical loop).
+- `Working`: Multimodal retrieval and visual interpretation.
+- `In progress`: Unified collaborative flow (`Research -> DS-STAR -> Final synthesis`).
+- `In progress`: Full metacognitive procedural memory in production flow.
+- `Pending`: Formal reproducible benchmarking report.
+
+If you evaluate this project, treat it as a high-rigor **research preview**, not a finished production benchmark release.
 
 ## DS-STAR Positioning
 
@@ -115,6 +131,8 @@ This repository intentionally avoids fabricated performance claims.
 
 See `docs/EVALUATION.md` and `benchmarks/theoretical_reasoning.md`.
 
+Implementation and benchmark execution plan: `docs/INTEGRATION_BENCHMARK_PLAN.md`.
+
 ## Real-World Testbeds
 
 Two macOS applications are intended as real-world testbeds for reasoning latency and interaction quality under production constraints:
@@ -141,6 +159,7 @@ Research-Repo/
     ├── CAPABILITIES.md
     ├── EVALUATION.md
     ├── GOVERNANCE.md
+    ├── INTEGRATION_BENCHMARK_PLAN.md
     ├── MATHEMATICAL_FOUNDATIONS.md
     ├── PRIMARY_SOURCES.md
     ├── ROADMAP.md

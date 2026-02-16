@@ -106,3 +106,22 @@ K.I.M.E.R.A. produce salidas de grado profesional:
 - citas y procedencia explicita,
 - consistencia entre texto, datos y visuales,
 - continuidad entre sesiones de trabajo.
+
+## 10. Estado Actual vs Arquitectura Objetivo
+
+### 10.1 Estado Actual (Preview)
+
+- `Research Agent` funciona de forma estable en su dominio.
+- `DS-STAR` funciona de forma estable en su dominio.
+- `Orchestrator` enruta, pero la colaboracion profunda entre ambos flujos aun no es completa.
+- La capa metacognitiva existe a nivel arquitectonico, con implementacion parcial en el flujo productivo unificado.
+
+### 10.2 Objetivo Inmediato
+
+Cerrar un flujo unico de investigacion aplicada:
+
+1. Research Agent construye evidencia y contexto.
+2. DS-STAR recibe ese contexto como insumo estructurado para analisis.
+3. Capa de sintesis genera un reporte final unificado (tecnico + ejecutivo + trazabilidad).
+
+Este objetivo se documenta en `docs/INTEGRATION_BENCHMARK_PLAN.md`.

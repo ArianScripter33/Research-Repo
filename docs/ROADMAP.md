@@ -15,7 +15,7 @@
 
 ## Phase 2.5: Unified Flow Integration (Priority)
 
-- Connect `Research -> DS-STAR -> Final Synthesis` as one deterministic pipeline.
+- Connect `Deep Research || DS-STAR -> Fusion -> Final Synthesis` as the default mission pattern.
 - Standardize handoff artifacts between agents (structured payloads, not only free text).
 - Produce one final merged report per mission.
 - Validate that report contains source traceability + analytical outputs.

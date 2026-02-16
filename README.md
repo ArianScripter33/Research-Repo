@@ -32,6 +32,12 @@ This repository reflects an architecture with strong working components, but inc
 
 If you evaluate this project, treat it as a high-rigor **research preview**, not a finished production benchmark release.
 
+## Author Thesis (Compound Effect)
+
+> \"El fin de todo esto es construir sistemas autónomos con criterio humano al centro.  
+> La investigación en IA funciona como interés compuesto: cada mejora en razonamiento, memoria y optimización acelera la siguiente iteración.  
+> Ese efecto compuesto puede habilitar avances en áreas fundamentales como física, matemáticas e inteligencia artificial.\"
+
 ## DS-STAR Positioning
 
 DS-STAR is positioned as a **Recursive Agentic Architecture for Data Science Workflows**, not just a script runner.
@@ -55,6 +61,28 @@ flowchart LR
     O --> C["Self-Correction Loop"]
     C --> P
 ```
+
+## Parallel Collaboration Strategy (Updated)
+
+Deep Research and DS-STAR are intentionally modeled as **decoupled parallel tracks**, not a strict serial dependency.
+
+```mermaid
+flowchart LR
+    U["User Mission"] --> O["Orchestrator"]
+    O --> DR["Deep Research Track (asynchronous, long-horizon)"]
+    O --> DS["DS-STAR Track (local docs/data processing)"]
+    DR --> R1["Research Evidence Package"]
+    DS --> R2["Analytical Report Package"]
+    R1 --> F["Fusion + Synthesis Layer"]
+    R2 --> F
+    F --> OUT["Unified Final Report"]
+```
+
+Rationale:
+
+- Deep Research may require long execution windows for quality.
+- DS-STAR can progress in parallel on local repositories and structured/unstructured files.
+- Fusion happens when one or both tracks produce usable artifacts.
 
 ## Core Reasoning Concepts
 

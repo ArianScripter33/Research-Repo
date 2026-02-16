@@ -118,10 +118,11 @@ K.I.M.E.R.A. produce salidas de grado profesional:
 
 ### 10.2 Objetivo Inmediato
 
-Cerrar un flujo unico de investigacion aplicada:
+Cerrar un flujo colaborativo paralelo de investigacion aplicada:
 
-1. Research Agent construye evidencia y contexto.
-2. DS-STAR recibe ese contexto como insumo estructurado para analisis.
-3. Capa de sintesis genera un reporte final unificado (tecnico + ejecutivo + trazabilidad).
+1. Deep Research corre en paralelo para inteligencia externa de alta profundidad.
+2. DS-STAR corre en paralelo para procesar repositorio/documentos/datos locales.
+3. Ambos flujos entregan artefactos estructurados a una capa de fusion.
+4. La capa de sintesis produce un reporte unificado (tecnico + ejecutivo + trazabilidad).
 
 Este objetivo se documenta en `docs/INTEGRATION_BENCHMARK_PLAN.md`.

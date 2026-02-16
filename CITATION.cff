@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+title: "Research Repo: Scientific Architecture Portfolio for K.I.M.E.R.A."
+message: "If you use this repository, please cite it using this metadata."
+type: software
+authors:
+  - family-names: "Stoned"
+    given-names: "Arian"
+repository-code: "https://github.com/ArianScripter33/Research-Repo"
+license: MIT
+version: "0.2.0"
+date-released: "2026-02-16"
+keywords:
+  - GraphRAG
+  - multi-step reasoning
+  - chain-of-thought verification
+  - self-correction loops
+  - autonomous planning
+  - metacognitive memory

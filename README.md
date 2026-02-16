@@ -1,161 +1,143 @@
 # Research Repo
 
-**Portafolio Cientifico de Arquitectura para K.I.M.E.R.A.**
+**Scientific Architecture Portfolio for K.I.M.E.R.A. and DS-STAR**
 
-## Que es K.I.M.E.R.A.
+## What is K.I.M.E.R.A.?
 
-**K.I.M.E.R.A.** significa **Knowledge Intelligent Multimodal Entity Retrieval Assistant**.
-Es un sistema de investigacion y analitica tecnica basado en GraphRAG, agentes especializados y memoria metacognitiva.
+**K.I.M.E.R.A.** stands for **Knowledge Intelligent Multimodal Entity Retrieval Assistant**.
+It is a GraphRAG-centered research and technical analysis architecture designed for grounded synthesis, multimodal evidence integration, and persistent reasoning memory.
 
-Su objetivo no es solo responder preguntas, sino producir **respuestas trazables** con evidencia, citas y control de calidad.
+## Research Motivation
 
-## Problema que Resuelve
+This project focuses on problems where standard assistants fail:
 
-Los pipelines RAG tradicionales suelen fallar en tres frentes:
+1. Long-horizon task planning under uncertainty.
+2. Multi-source synthesis with low hallucination tolerance.
+3. Multi-step reasoning across text, tables, and visual artifacts.
+4. Cross-session continuity and self-correction.
 
-1. Recuperan contexto local pero no relaciones globales entre fuentes.
-2. Tratan texto e imagen como mundos separados.
-3. Pierden aprendizaje entre sesiones.
+## DS-STAR Positioning
 
-K.I.M.E.R.A. aborda esto con:
+DS-STAR is positioned as a **Recursive Agentic Architecture for Data Science Workflows**, not just a script runner.
 
-- retrieval jerarquico sobre grafo (no solo top-k vectorial),
-- inteligencia multimodal (texto + visual),
-- capas metacognitivas para continuidad inter-sesion.
+Core objective:
 
-## Que tareas puede hacer Quimera
+- Use a slow, deliberate planning loop for reasoning-heavy decisions.
+- Use fast execution loops for code/action.
+- Reconcile both via verification and routing.
 
-K.I.M.E.R.A. puede operar como motor de investigacion y como sistema de ciencia de datos:
+This split addresses a known pain point in current models: **Long-Horizon Task Planning** and logic validation before execution.
 
-- Deep web research multi-fase: explorar, planear, ejecutar sub-queries y sintetizar.
-- Construccion y consulta de grafos de conocimiento con citas.
-- Analisis de documentos locales (PDF, reportes, imagenes, tablas complejas).
-- Analisis de datos estructurados (CSV, Excel, parquet, JSON, DB) con rigor reproducible.
-- Interpretacion de graficas y figuras mediante capa de vision.
-- Deteccion de gaps de conocimiento y refinamiento iterativo.
-
-## Vista General del Sistema
+## Planner-Executor Mental Model
 
 ```mermaid
-flowchart TD
-    U["User Intent"] --> O["Strategic Orchestrator"]
-    O --> KR["Kimera Research Agent"]
-    O --> DR["Deep Research Agent"]
-    O --> RP["Research Planner Agent"]
-    O --> DS["DS-STAR Data Scientist Agent"]
-
-    KR --> E["KIMERA Engine"]
-    DR --> E
-    RP --> E
-    DS --> E
-
-    E --> R["Hierarchical Retriever (Vector + PPR)"]
-    E --> V["Visual Interpreter (OCR + Semantic + Vision)"]
-    E --> M["Metacognitive Layer (Persistent Memory)"]
-    E --> G["Knowledge Graph (Neo4j + Embeddings)"]
-
-    R --> S["Grounded Synthesis with Citations"]
-    V --> S
-    M --> S
-    G --> S
-    S --> OUT["Decision-Grade Output"]
+flowchart LR
+    U["User Goal"] --> P["Planner Agent (System 2)"]
+    P -->|"Autonomous Planning Horizons"| V["CoT Verification Gate"]
+    V --> E["Executor Agent (System 1)"]
+    E --> O["Observed Outputs"]
+    O --> C["Self-Correction Loop"]
+    C --> P
 ```
 
-## Fundamentos Matematicos (Resumen)
+## Core Reasoning Concepts
 
-El motor utiliza tecnicas clasicas de teoria de grafos y recuperacion semantica:
+The architecture explicitly targets:
 
-1. PageRank para priorizar conceptos nucleares durante ingesta:
+- **Multi-step Reasoning**
+- **Chain-of-Thought (CoT) Verification**
+- **Self-Correction Loops**
+- **Autonomous Planning Horizons**
+- **First-Principles Thinking**
 
-$$
-PR(v_i) = \\frac{1-d}{N} + d \\sum_{v_j \\in M(v_i)} \\frac{PR(v_j)}{L(v_j)}
-$$
+## Mathematical Backbone (Summary)
 
-2. Personalized PageRank para expansion jerarquica de contexto:
-
-$$
-\\vec{p} = (1-c)A\\vec{p} + c\\vec{u}
-$$
-
-3. Similaridad coseno para matching texto-texto y texto-imagen:
+1. PageRank for core concept prioritization:
 
 $$
-\\text{Sim}(A, B) = \\frac{A \\cdot B}{\\|A\\|\\|B\\|}
+PR(v_i) = \frac{1-d}{N} + d \sum_{v_j \in M(v_i)} \frac{PR(v_j)}{L(v_j)}
 $$
 
-4. Modularidad para deteccion de comunidades (Leiden):
+2. Personalized PageRank for hierarchical retrieval:
 
 $$
-Q = \\frac{1}{2m} \\sum_{ij} \\left(A_{ij} - \\frac{k_i k_j}{2m}\\right)\\delta(c_i, c_j)
+\vec{p} = (1-c)A\vec{p} + c\vec{u}
 $$
 
-Mas detalle: `docs/MATHEMATICAL_FOUNDATIONS.md`.
+3. Cosine similarity for semantic ranking:
 
-## Capacidades por Capa
+$$
+\text{Sim}(A, B) = \frac{A \cdot B}{\|A\|\|B\|}
+$$
 
-| Capa | Capacidad principal | Resultado |
-| --- | --- | --- |
-| Orquestacion | Enrutamiento de intencion y seleccion de estrategia | Flujo de ejecucion correcto |
-| Investigacion profunda | Adquisicion web + deduplicacion semantica | Evidencia multi-fuente |
-| Ciencia de datos (DS-STAR) | Plan -> Codigo -> Verificacion -> Correccion | Analisis reproducible |
-| Retrieval GraphRAG | Seed semantico + expansion PPR | Contexto global y local |
-| Vision | OCR + ranking multimodal + analisis visual | Insights de graficas y tablas |
-| Memoria metacognitiva | Persistencia de trazas y anti-patrones | Mejora inter-sesion |
+4. Modularity optimization (Leiden communities):
 
-## Evaluacion, Benchmarks y Limitaciones
+$$
+Q = \frac{1}{2m} \sum_{ij} \left(A_{ij} - \frac{k_i k_j}{2m}\right)\delta(c_i, c_j)
+$$
 
-Estado actual:
+See `docs/MATHEMATICAL_FOUNDATIONS.md` for full context.
 
-- **Benchmark formal comparativo**: pendiente.
-- **Evidencia empirica disponible**: extensa (misiones ejecutadas, trazas, reportes, telemetria por fase, pruebas de integracion).
+## Textual Citations (Primary Sources)
 
-En vez de reportar metricas no verificadas, el repositorio sigue un enfoque de evidencia honesta:
+> "K.I.M.E.R.A. (**Knowledge Intelligent Multimodal Entity Retrieval Assistant**) es un sistema de GraphRAG (Retrieval-Augmented Generation basado en Grafos de Conocimiento) diseñado para investigación científica y análisis técnico." [1]
 
-1. Reportar lo medido operacionalmente.
-2. Declarar explicitamente lo que aun no esta benchmarkeado.
-3. Mantener un plan reproducible para evaluacion futura.
+> "El **Research Planner Agent** es un orquestador que implementa el patrón **Explore -> Plan -> Batch -> Audit -> Synthesize** para generar reportes de investigación exhaustivos." [2]
 
-Dimensiones de evaluacion recomendadas:
+> "K.I.M.E.R.A. V5-V6 implementa un sistema **tricameral** de inteligencia artificial." [3]
 
-- groundedness y trazabilidad de hallazgos,
-- cobertura de fuentes y contexto recuperado,
-- redundancia semantica post-sintesis,
-- estabilidad del ciclo multi-agente,
-- latencia y costo relativo por modo de investigacion.
+> "DS-STAR doesn't \"struggle\" with documents. It employs a **Librarian Protocol** to map, index, and semantically retrieve data across multimodal assets." [4]
 
-Limitaciones conocidas:
+> "**Purpose**: To retrieve global context by flowing probability through the graph structure, solving the \"disconnected chunk\" problem of Vector RAG." [5]
 
-- Dependencia de calidad y disponibilidad de fuentes externas.
-- Sensibilidad a rate limits y cuotas de proveedores de modelo/API.
-- Variabilidad de extraccion en documentos PDF complejos.
-- Mayor latencia/costo en modos de investigacion profunda.
-- Requiere validacion humana para decisiones de alto impacto.
+Full references and citation mapping: `docs/PRIMARY_SOURCES.md`.
 
-Mas detalle: `docs/EVALUATION.md`.
+## Evaluation Posture
 
-## Estructura del Repositorio
+Current status:
+
+- Formal comparative benchmark suite: **pending**.
+- Operational evidence: **available** (integration tests, mission traces, telemetry, synthesis reports).
+
+This repository intentionally avoids fabricated performance claims.
+
+See `docs/EVALUATION.md` and `benchmarks/theoretical_reasoning.md`.
+
+## Real-World Testbeds
+
+Two macOS applications are intended as real-world testbeds for reasoning latency and interaction quality under production constraints:
+
+- **Eidetic Clipboard**
+- **Kairon Whisper**
+
+## Repository Structure
 
 ```text
 Research-Repo/
 ├── README.md
-├── CONTRIBUTING.md
-├── LICENSE
+├── CITATION.cff
+├── evaluation_metrics.py
+├── benchmarks/
+│   └── theoretical_reasoning.md
+├── reasoning_traces_logs/
+│   ├── .gitkeep
+│   └── README.md
 └── docs/
-    ├── ARCHITECTURE.md
     ├── AGENTS.md
+    ├── ARCHITECTURE.md
     ├── CAPABILITIES.md
     ├── EVALUATION.md
     ├── GOVERNANCE.md
     ├── MATHEMATICAL_FOUNDATIONS.md
+    ├── PRIMARY_SOURCES.md
+    ├── ROADMAP.md
     └── TOOLING_MAP.md
 ```
 
-## Alcance y Limites
+## References
 
-- Este repo explica arquitectura, no detalles propietarios de implementacion.
-- Se prioriza claridad para evaluacion tecnica y comunicacion ejecutiva.
-- Las especificaciones son de alto nivel, pero fieles al sistema real.
-
-## Cita Sugerida
-
-> Author/Team. *Research Repo: Scientific Architecture Portfolio for K.I.M.E.R.A.* 2026.
+[1] `Docs/ARCHIVE (Research artifacts)/KIMERA_CURRENT_STATE.md`
+[2] `Docs/1-Agents/RESEARCH_PLANNER.md`
+[3] `Docs/0-Architecture/CORE_V5_V6_METACOGNITION.md`
+[4] `Docs/2-Intelligence/LOCAL_DATA_RESEARCH.md`
+[5] `Docs/ALGORITHMS.md`

@@ -1,114 +1,84 @@
-# Portafolio de Agentes
+# Agent Portfolio
 
-## 1. Orquestador Estrategico
+## 1. Strategic Orchestrator
 
-**Rol**: cerebro de ruteo.
+Role:
 
-- Interpreta intencion del usuario.
-- Selecciona el agente o combinacion de agentes correcta.
-- Mantiene coherencia de conversacion y salida.
-
-**Tareas tipicas**:
-
-- Resolver preguntas directas sobre conocimiento ya indexado.
-- Escalar a investigacion profunda cuando detecta complejidad.
-- Derivar a DS-STAR cuando la pregunta exige analitica cuantitativa.
+- Interprets user intent and constraints.
+- Selects the right specialist path.
+- Maintains coherence between planning, execution, and synthesis.
 
 ## 2. Kimera Research Agent
 
-**Rol**: especialista en consulta GraphRAG.
+Role:
 
-- Opera sobre el grafo de conocimiento existente.
-- Recupera contexto textual y estructural.
-- Devuelve evidencia lista para sintesis.
-
-**Tareas tipicas**:
-
-- Responder preguntas tecnicas con soporte documental.
-- Buscar relaciones entre documentos y conceptos.
-- Reportar gaps cuando la evidencia es insuficiente.
+- Executes GraphRAG queries on indexed knowledge.
+- Retrieves structural + semantic context.
+- Produces evidence packages for grounded synthesis.
 
 ## 3. Deep Research Agent
 
-**Rol**: adquisicion web autonoma.
+Role:
 
-- Descubre fuentes externas relevantes.
-- Ingiere contenido al grafo con lineage de mision.
-- Puede sintetizar o dejar evidencia preparada para etapas posteriores.
-
-**Tareas tipicas**:
-
-- Levantar estado del arte sobre un tema nuevo.
-- Actualizar un dominio tecnico con fuentes recientes.
-- Construir base de evidencia para reportes ejecutivos.
+- Performs autonomous external discovery and ingestion.
+- Expands evidence when local context is insufficient.
+- Supports multi-query missions with lineage tracking.
 
 ## 4. Research Planner Agent
 
-**Rol**: director de misiones de investigacion.
+Role:
 
-- Diseña estrategia multi-fase.
-- Genera sub-queries ortogonales para cobertura amplia.
-- Ejecuta auditoria semantica para evitar redundancia.
+- Directs deep missions with iterative planning.
+- Generates orthogonal sub-queries.
+- Applies semantic deduplication before final synthesis.
 
-**Tareas tipicas**:
+Canonical workflow:
 
-- Deep dives estrategicos.
-- Reportes de inteligencia tecnica.
-- Synthesis final con enfoque de decision.
+- Explore -> Plan -> Batch -> Audit -> Synthesize
 
-## 5. DS-STAR Data Scientist Agent
+## 5. DS-STAR (Recursive Agentic Architecture for Data Science Workflows)
 
-**Rol**: analista cuantitativo autonomo con verificacion.
+Role:
 
-- Descompone tareas analiticas en pasos ejecutables.
-- Genera y ejecuta codigo local.
-- Verifica resultados y corrige fallas.
+- Plans, executes, verifies, and debugs analytical workflows.
+- Uses explicit routing and self-correction when plans fail.
+- Produces reproducible analysis artifacts.
 
-**Tareas tipicas**:
+Core cycle:
 
-- Analisis financiero y forecasting.
-- Segmentacion y deteccion de patrones.
-- Construccion de graficas y reportes tecnicos reproducibles.
+- Analyze -> Plan -> Code -> Verify -> Route -> Finalize
 
-## 6. Componente de Vision
-
-**Rol**: interpretacion de activos visuales.
-
-- Identifica imagenes relevantes para una query.
-- Extrae contexto con OCR y embeddings multimodales.
-- Realiza interpretacion profunda para enriquecer la sintesis.
-
-**Tareas tipicas**:
-
-- Leer graficas de performance.
-- Interpretar diagramas de arquitectura.
-- Priorizar evidencia visual de alta densidad informativa.
-
-## 7. Componente Metacognitivo
-
-**Rol**: memoria y reflexion estructurada.
-
-- Captura trazas de razonamiento durante ejecucion.
-- Persiste patrones de exito/error.
-- Rehidrata contexto relevante en sesiones futuras.
-
-**Tareas tipicas**:
-
-- Evitar repetir rutas fallidas.
-- Transferir aprendizaje entre misiones.
-- Mejorar calidad de planificacion y ruteo con historial.
-
-## 8. Mapa de Interaccion
+## 6. Planner-Executor Decomposition (Reasoning-Aware)
 
 ```mermaid
-flowchart LR
-    U[User] --> O[Orchestrator]
-    O --> KR[Kimera Research]
-    O --> DR[Deep Research]
-    O --> RP[Research Planner]
-    O --> DS[DS-STAR]
-    KR --> S[Synthesis]
-    DR --> S
-    RP --> S
-    DS --> S
+flowchart TD
+    Q["Task"] --> PL["Planner Agent"]
+    PL --> VG["Verification Gate"]
+    VG --> EX["Executor Agent"]
+    EX --> OBS["Observed Results"]
+    OBS --> RT["Router"]
+    RT -->|"Refine"| PL
+    RT -->|"Continue"| EX
 ```
+
+This decomposition is designed for:
+
+- Multi-step reasoning control,
+- chain-of-thought verification checkpoints,
+- long-horizon planning reliability.
+
+## 7. Vision Component
+
+Role:
+
+- Filters and ranks visual assets for analytical relevance.
+- Extracts visual signals from charts/diagrams.
+- Injects visual evidence into synthesis.
+
+## 8. Metacognitive Component
+
+Role:
+
+- Persists structured reasoning traces (`Thought`, `Critique`, `AntiPattern`, etc.).
+- Hydrates new sessions with relevant prior traces.
+- Enables robust self-correction loops across sessions.

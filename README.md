@@ -160,6 +160,7 @@ This repository intentionally avoids fabricated performance claims.
 See `docs/EVALUATION.md` and `benchmarks/theoretical_reasoning.md`.
 
 Implementation and benchmark execution plan: `docs/INTEGRATION_BENCHMARK_PLAN.md`.
+Engineering and MLOps standards: `docs/ENGINEERING_STANDARDS.md`.
 
 ## Repository Structure
 
@@ -178,6 +179,7 @@ Research-Repo/
     ├── AGENTS.md
     ├── ARCHITECTURE.md
     ├── CAPABILITIES.md
+    ├── ENGINEERING_STANDARDS.md
     ├── EVALUATION.md
     ├── GOVERNANCE.md
     ├── INTEGRATION_BENCHMARK_PLAN.md
